@@ -1,0 +1,40 @@
+{% extends "@PIDEVUser/base.html.twig" %}
+
+
+
+
+
+
+{% block body %}
+
+<body class="login">
+<div>
+    <a class="hiddenanchor" id="signup"></a>
+    <a class="hiddenanchor" id="signin"></a>
+
+<! login wrapper>
+    <div class="login_wrapper">
+        <div class="animate form login_form">
+    {% block fos_user_content %}
+    {% endblock fos_user_content%}
+        </div>
+
+        {% block fos_user_content_register %}
+        <div id="register" class="animate form registration_form">
+
+        </div>
+        {% endblock fos_user_content_register %}
+
+
+
+
+
+
+
+
+    </div>
+<!login wrapper />
+</div>
+</body>
+{% endblock body %}
+

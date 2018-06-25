@@ -1,0 +1,46 @@
+{% extends "@PIDEVProjet/base.html.twig" %}
+
+
+{% block body %}
+
+    <br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="span3">
+       {% include "@PIDEVProjet/ModuleUsed/Navigation.html.twig" %}
+            {% include "@PIDEVProjet/ModuleUsed/Utilisateur.html.twig" %}
+        </div>
+        <div class="span9">
+
+            <ul class="thumbnails">
+                 {% for i in m %}
+                <li class="span3">
+                    <div class="thumbnail">
+                        <img src="{{ asset(i.imageP.AssetPath|default('undefined')  ) }}" alt="{{ i.imageP.name|default('undefined')  }}" width="200" height="200">
+                        <div class="caption">
+                            <h4>{{ i.nomP }}</h4>
+                            <p>{{ i.prix }}dt</p>
+                            <a class="btn btn-primary" href="{{ path('Prod',{'id': i.id}) }}">Plus d'infos</a>
+                            <a class="btn btn-success" href="{{ path('ajouter',{'id': i.id}) }}">Ajouter au panier</a>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <div class="pagination">
+                <ul>
+                    <li class="disabled"><span>Précédent</span></li>
+                    <li class="disabled"><span>1</span></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">Suivant</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,15 @@
+esprit_api_homepage:
+    path:     /
+    defaults: { _controller: EspritApiBundle:Default:index }
+
+all:
+    path:     /tasks/all
+    defaults: { _controller: EspritApiBundle:Task:all }
+
+find_task:
+    path:     /tasks/find/{id}
+    defaults: { _controller: EspritApiBundle:Task:find }
+
+create_task:
+    path:     /tasks/new
+    defaults: { _controller: EspritApiBundle:Task:new }

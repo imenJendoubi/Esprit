@@ -1,0 +1,68 @@
+{% extends "@PIDEVProjet/base.html.twig" %}
+{% set totalHT = 0 %}
+{% set totalTTC = 0 %}
+{% set tva =(19/100) %}
+
+{% block body %}
+    <br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+                {% include "@PIDEVProjet/ModuleUsed/Navigation.html.twig" %}
+            </div>
+            <div class="span9">
+                <h2>Votre parnier</h2>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Références</th>
+                            <th>Quantité</th>
+                            <th>Prix unitaire</th>
+                            <th>Total HT</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for p in produit %}
+                            <tr>
+                                <form action="{{ path('ajouter',{'id' : p.id}) }}" method="get">
+                                    <td>{{ p.nomP }}</td>
+                                    <td>
+                                        <select name="qte" class="span1" onchange="this.form.submit()">
+                                            {% for i in 1..10 %}
+                                                <option value="{{ i }}" {% if i == panier[p.id] %} selected="selected"{% endif %} >{{ i }}</option>
+                                            {% endfor %}
+
+                                        </select>&nbsp;
+
+                                        <a href="#"><i class="icon-refresh"></i></a>
+                                        <a href="{{ path('supprimerPan',{'id' : p.id}) }}"><i class="icon-trash"></i></a>
+                                    </td>
+                                    <td>{{ p.prix }} DT</td>
+                                    <td>{{ p.prix * panier[p.id] }} DT</td>
+                                </form>
+                            </tr>
+                            {% set totalHT = totalHT +(p.prix * panier[p.id]) %}
+                            {% set totalTTC = totalTTC +(p.prix * panier[p.id])+(p.prix * panier[p.id])*tva %}
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                <dl class="dl-horizontal pull-right">
+                    <dt>Total HT :</dt>
+                    <dd>{{ totalHT }} DT</dd>
+
+                    <dt>TVA :</dt>
+                    <dd>19%</dd>
+
+                    <dt>Total:</dt>
+                    <dd>{{ totalTTC }} DT</dd>
+                </dl>
+                <div class="clearfix"></div>
+                <a href="{{ path('Livraison') }}" class="btn btn-success pull-right">Valider mon panier</a>
+                <a href="index.php" class="btn btn-primary">Continuer mes achats</a>
+            </div>
+
+        </div>
+    </div>
+    <br><br><br>
+{% endblock body %}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+
+
+        {% block stylesheets %}
+            <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css">
+            <!--[if IE 6]><link href="{{ asset('css/ie6.css') }}" rel="stylesheet" type="text/css"><![endif]-->
+            <!--[if IE 7]><link href="{{ asset('css/ie7.css') }}" rel="stylesheet" type="text/css"><![endif]-->
+            <!-->
+            <link rel="stylesheet" href="{{ asset('css/t/bootstrap.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/t/bootstrap-responsive.css') }}" />
+
+            <link rel="stylesheet" href="{{ asset('css/t/font-awesome.css') }}" />
+
+
+
+            {% stylesheets 'bundles/app/css/*' filter='cssrewrite' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+            {% endstylesheets %}
+            {% image '@AppBundle/Resources/public/images/*' %}
+                <img src="{{ asset_url }}" alt="Example" />
+            {% endimage %}
+        {% endblock %}
+
+    </head>
+    <body>
+    <div id="header"> <a href="#" id="logo"><img src="{{ asset('images/logo.gif') }}" width="310" height="114" alt=""></a>
+        <ul class="navigation">
+            <li class="active"><a href="{{ asset('index.html') }}">Accueil</a></li>
+            <li><a href="{{ asset('petmart.html') }}">Nos produits</a></li>
+            <li><a href="{{ asset('about.html') }}">About us</a></li>
+            <li><a href="{{ asset('blog.html') }}">Blog</a></li>
+            <li><a href="{{ asset('petguide.html') }}">PetGuide</a></li>
+            <li><a href="{{ asset('contact.html') }}">Contact us</a></li>
+        </ul>
+    </div>
+
+
+        <div id="content">
+            {% block body %}
+
+            {% endblock %}
+
+
+        </div>
+
+
+
+
+
+
+
+    <div id="footer">
+        <div class="section">
+            <ul>
+                <li> <img src="{{ asset('images/friendly-pets.jpg') }}" width="240" height="186" alt="">
+                    <h2><a href="#">Friendly Pets</a></h2>
+                    <p> Lorem ipsum dolor sit amet, consectetuer adepiscing elit, sed diam nonummy nib. <a class="more" href="#">Read More</a> </p>
+                </li>
+                <li> <img src="{{ asset('images/pet-lover2.jpg') }}" width="240" height="186" alt="">
+                    <h2><a href="#">How dangerous are they</a></h2>
+                    <p> Lorem ipsum dolor sit amet, cons ectetuer adepis cing, sed diam euis. <a class="more" href="#">Read More</a> </p>
+                </li>
+                <li> <img src="{{ asset('images/healthy-dog.jpg') }}" width="240" height="186" alt="">
+                    <h2><a href="#">Keep them healthy</a></h2>
+                    <p> Lorem ipsum dolor sit amet, consectetuer adepiscing elit, sed diam nonu mmy. <a class="more" href="#">Read More</a> </p>
+                </li>
+                <li>
+                    <h2><a href="#">Love...love...love...pets</a></h2>
+                    <p> Lorem ipsum dolor sit amet, consectetuer adepiscing elit, sed diameusim. <a class="more" href="#">Read More</a> </p>
+                    <img src="{{ asset('images/pet-lover.jpg') }}" width="240" height="186" alt=""> </li>
+            </ul>
+        </div>
+        <div id="footnote">
+            <div class="section">Copyright &copy; 2012 <a href="">login</a> All rights reserved | Website Template By <a target="_blank" href="http://www.freewebsitetemplates.com/">freewebsitetemplates.com</a></div>
+        </div>
+    </div>
+    {% block javascripts %}
+        <script src="{{ asset('js/jquery-1.10.0.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
+
+        <script src="{{ asset('js/script.js') }}"></script>
+        {% javascripts '@AppBundle/Resources/public/js/*' output='js/compiled/main.js' %}
+        '@jquery_and_ui'
+        '@AppBundle/Resources/public/js/thirdparty/jquery.js'
+        '@AppBundle/Resources/public/js/*'
+        '@AcmeBarBundle/Resources/public/js/form.js'
+        '@AcmeBarBundle/Resources/public/js/calendar.js' %}
+        <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+
+    {% endblock %}
+
+    </body>
+</html>

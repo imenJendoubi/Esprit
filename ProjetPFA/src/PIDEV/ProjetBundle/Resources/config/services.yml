@@ -1,0 +1,4 @@
+services:
+#    pidev_projet.example:
+#        class: PIDEV\ProjetBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

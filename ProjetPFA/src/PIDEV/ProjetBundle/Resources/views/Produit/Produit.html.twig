@@ -1,0 +1,47 @@
+
+{% extends "@PIDEVProjet/base.html.twig" %}
+
+{% block body %}
+    <br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="span3">
+            {% include "@PIDEVProjet/ModuleUsed/Navigation.html.twig" %}
+        </div>
+
+        <div class="span9">
+            <div class="row">
+                <div class="span5">
+                    <img src="{{ asset(m.imageP.AssetPath|default('undefined')  ) }}" alt="DevAndClick" width="400" height="270">
+                </div>
+
+                <div class="span4">
+                    <h4>{{ m.nomP }}</h4>
+                    <h5>{{ m.categorie.nom }}</h5>
+                    <p>{{ m.DescP }}</p>
+                    <h4><b>{{ m.prix }}</b></h4>
+                    <p class="prix">{{ m.prix }}DT</p>
+                    <form action="{{ path('ajouter',{'id': m.id}) }}" method="get">
+
+
+                        <select name="qte" class="span1">
+                            {% for i in 1..10 %}
+                            <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
+                        </select>
+
+                        <div>
+                            <button class="btn btn-warning" ><span class="glyphicon glyphicon-star" aria-hidden="true"></span>Ajouter au panier</button>
+
+                        </div>
+                    </form>
+
+                </div>
+
+            </div>
+            <div class="col-md-12"> {% include '@FOSComment/Thread/async.html.twig' with {'id': 'foo'} %}</div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

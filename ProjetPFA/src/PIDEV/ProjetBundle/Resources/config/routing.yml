@@ -1,0 +1,84 @@
+pidev_projet_homepage:
+    path:     /
+    defaults: { _controller: PIDEVProjetBundle:Default:index }
+
+
+index:
+    path:     /home
+    defaults: { _controller: PIDEVProjetBundle:Test:index }
+
+index2:
+    path:     /home2
+    defaults: { _controller: PIDEVProjetBundle:Test:index2 }
+
+list:
+    path:     /list
+    defaults: { _controller: PIDEVProjetBundle:Produit:AjoutProduit }
+
+AffichageProduit:
+    path:     /afficheP
+    defaults: { _controller: PIDEVProjetBundle:Produit:listProduit }
+
+supprimer:
+    path:     /supprimer/{id}
+    defaults: { _controller: PIDEVProjetBundle:Produit:supp }
+
+modifier:
+    path:     /modif/{id}
+    defaults: { _controller: PIDEVProjetBundle:Produit:Update }
+
+Rech:
+    path:     /find
+    defaults: { _controller: PIDEVProjetBundle:Produit:Recherche }
+
+Prod:
+    path:     /prod/{id}
+    defaults: { _controller: PIDEVProjetBundle:Produit:Index }
+
+Pres:
+    path:     /pres
+    defaults: { _controller: PIDEVProjetBundle:Produit:PesentationProduit }
+
+ajouter:
+    path:     /ajouter/{id}
+    defaults: { _controller: PIDEVProjetBundle:Panier:ajouter }
+supprimerPan:
+    path:     /supprimerPan/{id}
+    defaults: { _controller: PIDEVProjetBundle:Panier:supprimerPan }
+Panier:
+    path:     /panier
+    defaults: { _controller: PIDEVProjetBundle:Panier:Panier }
+
+Livraison:
+    path:     /panier/liv
+    defaults: { _controller: PIDEVProjetBundle:Panier:Livraison }
+
+Validation:
+    path:     /panier/validation
+    defaults: { _controller: PIDEVProjetBundle:Panier:Validation }
+
+
+ListeCategories:
+    path:     /cat
+    defaults: { _controller: PIDEVProjetBundle:Produit:listCat }
+
+CategorieProduit:
+    path:     /categorie/{categorie}
+    defaults: { _controller: PIDEVProjetBundle:Produit:CategorieTrie }
+
+
+AjoutCateg:
+    path:     /addCat
+    defaults: { _controller: PIDEVProjetBundle:Categorie:AjoutCategorie }
+
+AffichageCateg:
+    path:     /afficheCat
+    defaults: { _controller: PIDEVProjetBundle:Categorie:listCategorie }
+
+supprimerCat:
+    path:     /supprimerCat/{id}
+    defaults: { _controller: PIDEVProjetBundle:Categorie:supp }
+
+modifierCat:
+    path:     /modifierCat/{id}
+    defaults: { _controller: PIDEVProjetBundle:Categorie:Update }

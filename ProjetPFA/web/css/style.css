@@ -13,11 +13,15 @@ body {
 	height:72px;
 	position:relative;
 	margin:0 auto;
+<<<<<<< HEAD
 	bottom: 44px;
 }
 .userLog{position: relative;
 	text-align: right;
 	padding: 0 2%;}
+=======
+}
+>>>>>>> 71f1915dd2584aa262cd45c4b79955ead5f4568c
 .loading {
     float:right;
     margin-right:115px;
